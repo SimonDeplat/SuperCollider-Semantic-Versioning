@@ -120,12 +120,12 @@ Version : Object {
 		// Append pre-release if needed
 		if(preReleaseVersion.notNil) {
 			string = string ++ "-";
-			string = string ++ preReleaseVersion.asString;
+			string = string ++ preReleaseVersion;
 		};
 		// Append build if needed
 		if(buildVersion.notNil) {
 			string = string ++ "+";
-			string = string ++ buildVersion.asString;
+			string = string ++ buildVersion;
 		};
 		// Return
 		^string
