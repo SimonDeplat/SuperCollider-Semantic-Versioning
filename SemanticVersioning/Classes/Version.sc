@@ -109,6 +109,38 @@ Version : Object {
 		^buildVersion
 	}
 
+	// Version specification setters
+	bumpMajor {
+		majorVersion = majorVersion + 1;
+		minorVersion = 0;
+		patchVersion = 0;
+	}
+
+	bumpMinor {
+		minorVersion = minorVersion + 1;
+		patchVersion = 0;
+	}
+
+	bumpPatch {
+		patchVersion = patchVersion + 1;
+	}
+
+	// Should it remove "-"
+	// if it is the first character ?
+	preRelease_ { |aString|
+		if(aString != "")
+		{ preReleaseVersion = aString; }
+		{ preReleaseVersion = nil; };
+	}
+
+	// Should it remove "+"
+	// if it is the first character ?
+	build_ { |aString|
+		if(aString != "")
+		{ buildVersion = aString; }
+		{ buildVersion = nil; };
+	}
+
 	// Semver String getter
 	string {
 		var string = "";
