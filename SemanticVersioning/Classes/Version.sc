@@ -80,9 +80,9 @@ Version : Object {
 
 		// Separating Major / Minor / Patch
 		split = semver.split($.);
-		semverAsEvent[\major] = split[0];
-		semverAsEvent[\minor] = split[1];
-		semverAsEvent[\patch] = split[2];
+		semverAsEvent[\major] = split[0].asInteger;
+		semverAsEvent[\minor] = split[1].asInteger;
+		semverAsEvent[\patch] = split[2].asInteger;
 
 		// Return the event
 		^semverAsEvent
