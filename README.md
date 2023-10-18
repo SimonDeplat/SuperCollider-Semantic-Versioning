@@ -39,7 +39,12 @@ This project contains :
 
 - a **README.md** file, this one, that provides context and introduction to the topic.
 
-- a **Notes.md** file referencing general remarks about the topic. 
+- a **Notes.md** file referencing general remarks about the topic.
+
+## TODO
+
+- write the user API to document the utilisation as clearly as possible.
+- prototype semver comparisons with `<`, `>`, `<=`, `>=`, `==` operands.
 
 ## Licence
 
