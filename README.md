@@ -32,3 +32,15 @@ to track modules versions, dependencies and to ease conflicts resolution.
 [NPM implementation of the semver system](https://github.com/npm/node-semver)
 
 [PureData's package manager](https://github.com/pure-data/deken)
+
+## Project Structure
+
+This project contains :
+
+- a **README.md** file, this one, that provides context and introduction to the topic.
+
+- a **Notes.md** file referencing general remarks about the topic. 
+
+## Licence
+
+Just as SuperCollider, this content is licenced under [GNU GPL v3 Licence](https://github.com/SimonDeplat/SuperCollider-Semantic-Versioning/blob/main/LICENSE).
