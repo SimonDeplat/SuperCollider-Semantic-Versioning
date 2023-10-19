@@ -43,11 +43,14 @@ This project contains :
 
 	- Containing **Classes/Versions.sc** which defines the `Version` class.
 
-## TODO
+	- Containing **HelpSource/Classes/Version.schelp**, the associated documentation.
 
-- write the user API into SC Help system, to document the utilisation as clearly as possible.
-- collectively decide how to deal with pre-release strong comparisons.
+## TODO
+- write the user API if needed, although the class usage seems self-explanatory.
+- write code examples inside the schelp file, although the class usage seems self-explanatory.
+- collectively decide how to deal with pre-release string comparisons.
 - implement an automatic testing procedure if needed. Methods have been tested manually so far.
+- a native english speaker should correct the documentation file.
 
 ## Licence
 
