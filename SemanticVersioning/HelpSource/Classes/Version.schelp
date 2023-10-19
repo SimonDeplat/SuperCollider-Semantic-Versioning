@@ -1,1 +1,208 @@
+TITLE:: Version
+summary:: (put short description here)
+categories:: Undocumented classes
+related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
 
+DESCRIPTION::
+(put long description here)
+
+
+CLASSMETHODS::
+
+METHOD:: v1
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: beta
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: new
+(describe method here)
+
+ARGUMENT:: semverString
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: alpha
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: helloWorld
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: prSemverStringToEvent
+(describe method here)
+
+ARGUMENT:: semverString
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+
+INSTANCEMETHODS::
+
+METHOD:: !=
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: minor
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: >
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: isMajorEqual
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: bumpMajor
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: preRelease
+(describe method here)
+
+ARGUMENT:: aString
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: <
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: ==
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: bumpMinor
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: patch
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: isPatchEqual
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: isMinorEqual
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: clear
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: major
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: ===
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: >=
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: <=
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: string
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: !==
+(describe method here)
+
+ARGUMENT:: aVersion
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: init
+(describe method here)
+
+ARGUMENT:: semverString
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: build
+(describe method here)
+
+ARGUMENT:: aString
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: bumpPatch
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+
+EXAMPLES::
+
+code::
+(some example code)
+::
