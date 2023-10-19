@@ -31,8 +31,6 @@ to track modules versions, dependencies and to ease conflicts resolution.
 
 [NPM implementation of the semver system](https://github.com/npm/node-semver)
 
-[PureData's package manager](https://github.com/pure-data/deken)
-
 ## Project Structure
 
 This project contains :
@@ -41,10 +39,15 @@ This project contains :
 
 - a **Notes.md** file referencing general remarks about the topic.
 
+- a **SemanticVersioning folder** which is the Quark folder for the Semver implementation.
+
+	- Containing **Classes/Versions.sc** which defines the `Version` class.
+
 ## TODO
 
-- write the user API to document the utilisation as clearly as possible.
-- prototype semver comparisons with `<`, `>`, `<=`, `>=`, `==` operands.
+- write the user API into SC Help system, to document the utilisation as clearly as possible.
+- collectively decide how to deal with pre-release strong comparisons.
+- implement an automatic testing procedure if needed. Methods have been tested manually so far.
 
 ## Licence
 
