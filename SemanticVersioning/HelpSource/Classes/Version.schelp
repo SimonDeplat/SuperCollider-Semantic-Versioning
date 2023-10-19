@@ -1,208 +1,143 @@
 TITLE:: Version
-summary:: (put short description here)
-categories:: Undocumented classes
-related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
+summary:: Implementation of the Semantic Versioning standard
+categories:: Development
 
 DESCRIPTION::
-(put long description here)
+Version is a tool designed to ease dependency management when developping SuperCollider projects. You will need it if you intend to develop a Quark, or if you'd like to implement semantic versioning inside your own project.
 
+Version provides basic tools to work with semantic versioning. If this subject is new to you, you should read the Semantic Versioning standard documentation before you go further : https://semver.org/ .
+
+It provides getters for standard initial versions, automatic version increments, and basic version comparisons.
 
 CLASSMETHODS::
 
-METHOD:: v1
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: beta
-(describe method here)
-
-returns:: (describe returnvalue here)
+subsection::Instancing Class Methods
 
 METHOD:: new
-(describe method here)
-
 ARGUMENT:: semverString
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: alpha
-(describe method here)
-
-returns:: (describe returnvalue here)
+: a correct Semantic Versioning string. Please note that this class provides all the tools you need to never have to type the string yourself, which is the recommended method.
+returns:: A new Version which string is equal to semverString, or "0.1.0" if none is provided.
 
 METHOD:: helloWorld
-(describe method here)
+returns:: a new Version which string is equal to "0.1.0".
 
-returns:: (describe returnvalue here)
+METHOD:: beta
+returns:: a new Version which string is equal to "1.0.0-beta".
+
+METHOD:: alpha
+returns:: a new Version which string is equal to "1.0.0-alpha".
+
+METHOD:: v1
+returns:: a new Version which string is equal to "1.0.0".
+
+subsection::Private Class Methods
 
 METHOD:: prSemverStringToEvent
-(describe method here)
-
+A private method that converts the Semantic Versioning string into an Event to allow further manipulation. Should not be used directly.
 ARGUMENT:: semverString
-(describe argument here)
-
-returns:: (describe returnvalue here)
+returns:: the Semantic Versioning string formatted as an Event.
 
 
 INSTANCEMETHODS::
 
-METHOD:: !=
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: minor
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: >
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: isMajorEqual
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: bumpMajor
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: preRelease
-(describe method here)
-
-ARGUMENT:: aString
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: <
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: ==
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: bumpMinor
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: patch
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: isPatchEqual
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: isMinorEqual
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: clear
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: major
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: ===
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: >=
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: <=
-(describe method here)
-
-ARGUMENT:: aVersion
-(describe argument here)
-
-returns:: (describe returnvalue here)
+subsection::Getters Instance Methods
 
 METHOD:: string
-(describe method here)
+This method returns the current Semantic Version string, correctly formatted. This is the only information you'll need to store into your project once the Version has been modified.
+returns:: the Semantic Version string, correctly formatted.
 
-returns:: (describe returnvalue here)
+METHOD:: major
+returns:: the major version, as an Integer.
 
-METHOD:: !==
-(describe method here)
+METHOD:: minor
+returns:: the minor version, as an Integer.
 
-ARGUMENT:: aVersion
-(describe argument here)
+METHOD:: patch
+returns:: the patch version, as an Integer.
 
-returns:: (describe returnvalue here)
+subsection::Setters Instance Methods
 
-METHOD:: init
-(describe method here)
+METHOD:: bumpMajor
+Increase the major version by 1, resetting both minor and patch version. Pre-release and build are left untouched, meaning you might want to use .clear to reset them aswell.
 
-ARGUMENT:: semverString
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: build
-(describe method here)
-
-ARGUMENT:: aString
-(describe argument here)
-
-returns:: (describe returnvalue here)
+METHOD:: bumpMinor
+Increase the minor version by 1, resetting patch version. Pre-release and build are left untouched, meaning you might want to use .clear to reset them aswell.
 
 METHOD:: bumpPatch
-(describe method here)
+Increase the patch version by 1. Pre-release and build are left untouched, meaning you might want to use .clear to reset them aswell.
 
-returns:: (describe returnvalue here)
+METHOD:: clear
+Sets both build and pre-release versions to nil. Usually called after incrementing major, minor or patch version.
 
+subsection::SetGet Instance Methods
 
-EXAMPLES::
+METHOD:: preRelease
+Replaces current pre-release version with aString, or sets it to nil if aString equals "".
+ARGUMENT:: aString
 
-code::
-(some example code)
-::
+METHOD:: build
+Replaces current build version with aString, or sets it to nil if aString equals "".
+ARGUMENT:: aString
+
+subsection::Comparison Instance Methods
+
+METHOD:: ==
+Returns true if both versions major, minor, patch and pre-release are the same, false otherwise. Does not compare builds.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: !=
+Returns true if at least one of the two versions major, minor, patch or pre-release are the different, false otherwise. Does not compare builds.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: ===
+Returns true if both versions major, minor, patch, pre-release and build are the same, false otherwise.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: !==
+Returns true if at least one of the two versions major, minor, patch, pre-release or build are the different, false otherwise.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: isMajorEqual
+Returns true if compared Versions have the same major version number, false otherwise.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: isMinorEqual
+Returns true if compared Versions have the same major version number and the same minor version number, false otherwise.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: isPatchEqual
+Returns true if compared Versions have the same major version number, the same minor version number and the same patch version number, false otherwise.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: <
+Returns true if the receiver version is strictly inferior to the argument version. Cannot compare two pre-release precedence, so will yield false by default if patches are the same and both Versions have differents pre-release.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: <=
+Returns true if the receiver version is equal or inferior to the argument version. Cannot compare two pre-release precedence, so will yield false by default if patches are the same and both Versions have differents pre-release.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: >
+Returns true if the receiver version is strictly posterior to the argument version. Cannot compare two pre-release precedence, so will yield false by default if patches are the same and both Versions have differents pre-release.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+METHOD:: >=
+Returns true if the receiver version is equal or posterior to the argument version. Cannot compare two pre-release precedence, so will yield false by default if patches are the same and both Versions have differents pre-release.
+ARGUMENT:: aVersion
+returns:: aBoolean
+
+subsection::Private Instance Methods
+
+METHOD:: init
+Called when the instance is created. Is responsible to convert the Semantic Version string into an Event, and assign instance's variables accordingly.
+ARGUMENT:: semverString
