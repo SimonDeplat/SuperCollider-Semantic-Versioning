@@ -109,6 +109,23 @@ Version : Object {
 		^buildVersion
 	}
 
+	// Special getters
+	*helloWorld {
+		^this.new
+	}
+
+	*beta {
+		^this.new.bumpMajor.preRelease_("beta")
+	}
+
+	*alpha {
+		^this.new.bumpMajor.preRelease_("alpha")
+	}
+
+	*v1 {
+		^this.new.bumpMajor
+	}
+
 	// Version specification setters
 	bumpMajor {
 		majorVersion = majorVersion + 1;
@@ -139,6 +156,12 @@ Version : Object {
 		if(aString != "")
 		{ buildVersion = aString; }
 		{ buildVersion = nil; };
+	}
+
+	// Special setter
+	clear {
+		preReleaseVersion = nil;
+		buildVersion = nil;
 	}
 
 	// Semver String getter
