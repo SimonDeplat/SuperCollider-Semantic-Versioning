@@ -163,4 +163,183 @@ Version : Object {
 		^string
 	}
 
+	// Comparisons tools
+
+	// Equality symbol checks equality
+	// WITHOUT comparing builds
+	== { |aVersion|
+		var equality = (majorVersion == aVersion.major);
+		if(equality)
+		{ equality = (minorVersion == aVersion.minor); };
+		if(equality)
+		{ equality = (patchVersion == aVersion.patch); };
+		if(equality) {
+			equality =
+			(preReleaseVersion == aVersion.preRelease);
+		};
+		^equality
+	}
+
+	!= { |aVersion|
+		^(this == aVersion).not
+	}
+
+	// Identity symbol also checks builds equality
+	=== { |aVersion|
+		^(this.string == aVersion.string);
+	}
+
+	!== { |aVersion|
+		^(this.string == aVersion.string).not
+	}
+
+	isPatchEqual { |aVersion|
+		var identity = (majorVersion == aVersion.major);
+		if(identity)
+		{ identity = (minorVersion == aVersion.minor); };
+		if(identity)
+		{ identity = (patchVersion == aVersion.patch); };
+		^identity
+	}
+
+	isMinorEqual { |aVersion|
+		var identity = (majorVersion == aVersion.major);
+		if(identity)
+		{ identity = (minorVersion == aVersion.minor); };
+		^identity
+	}
+
+	isMajorEqual { |aVersion|
+		var identity = (majorVersion == aVersion.major);
+		^identity
+	}
+
+	// Precedency && Posteriority don't check
+	// pre-release content itself,
+	// only if it's nil or not
+	// "1.0.0" > "1.0.0-beta" equals True
+	// "1.0.0-alpha" > "1.0.0-beta" equals False
+
+	< { |aVersion|
+		if(majorVersion != aVersion.major) {
+			if(majorVersion < aVersion.major)
+			{ ^true }
+			{ ^false };
+		} { // if majors are equal
+			if(minorVersion != aVersion.minor) {
+				if(minorVersion < aVersion.minor)
+				{ ^true }
+				{ ^false };
+			} { // if minors are also equal
+				if(patchVersion != aVersion.patch) {
+					if(patchVersion < aVersion.patch)
+					{ ^true }
+					{ ^false };
+				} { // if patches are also equal
+					// Only thing we can distinguish for now
+					// is either 'equality'
+					// or the presence of pre-release information
+					// pre-release strings are not comparable
+					// without a collective 'hard-coded'
+					// decision procedure
+					if(this == aVersion)
+					{ ^false }
+					{ ^(preReleaseVersion.notNil && aVersion.preRelease.isNil) };
+				};
+			};
+		};
+	}
+
+	<= { |aVersion|
+		if(majorVersion != aVersion.major) {
+			if(majorVersion < aVersion.major)
+			{ ^true }
+			{ ^false };
+		} { // if majors are equal
+			if(minorVersion != aVersion.minor) {
+				if(minorVersion < aVersion.minor)
+				{ ^true }
+				{ ^false };
+			} { // if minors are also equal
+				if(patchVersion != aVersion.patch) {
+					if(patchVersion < aVersion.patch)
+					{ ^true }
+					{ ^false };
+				} { // if patches are also equal
+					if(this == aVersion)
+					{ ^true }
+					{ if(preReleaseVersion.notNil && aVersion.preRelease.isNil)
+						{ ^true }
+						// Yield false if both versions have
+						// different pre-release informations
+						// because we can't compare their precedence
+						// though precedence could technically be true
+						{ ^false };
+					};
+				};
+			};
+		};
+	}
+
+	> { |aVersion|
+		if(majorVersion != aVersion.major) {
+			if(majorVersion > aVersion.major)
+			{ ^true }
+			{ ^false };
+		} { // if majors are equal
+			if(minorVersion != aVersion.minor) {
+				if(minorVersion > aVersion.minor)
+				{ ^true }
+				{ ^false };
+			} { // if minors are also equal
+				if(patchVersion != aVersion.patch) {
+					if(patchVersion > aVersion.patch)
+					{ ^true }
+					{ ^false };
+				} { // if patches are also equal
+					// Only thing we can distinguish for now
+					// is either 'equality'
+					// or the presence of pre-release information
+					// pre-release strings are not comparable
+					// without a collective 'hard-coded'
+					// decision procedure
+					if(this == aVersion)
+					{ ^false }
+					{ ^(preReleaseVersion.isNil && aVersion.preRelease.notNil) };
+				};
+			};
+		};
+	}
+
+	>= { |aVersion|
+		if(majorVersion != aVersion.major) {
+			if(majorVersion > aVersion.major)
+			{ ^true }
+			{ ^false };
+		} { // if majors are equal
+			if(minorVersion != aVersion.minor) {
+				if(minorVersion > aVersion.minor)
+				{ ^true }
+				{ ^false };
+			} { // if minors are also equal
+				if(patchVersion != aVersion.patch) {
+					if(patchVersion > aVersion.patch)
+					{ ^true }
+					{ ^false };
+				} { // if patches are also equal
+					if(this == aVersion)
+					{ ^true }
+					{ if(preReleaseVersion.isNil && aVersion.preRelease.notNil)
+						{ ^true }
+						// Yield false if both versions have
+						// different pre-release informations
+						// because we can't compare their posteriority
+						// though posteriority could technically be true
+						{ ^false };
+					};
+				};
+			};
+		};
+	}
+
 }
