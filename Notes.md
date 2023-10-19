@@ -19,6 +19,11 @@ version = version.incrementPatch;
 myQuark.updateVersion;
 ```
 
+**Update :** current implementation follows this guideline using *.bumpMajor*,
+*.bumpMinor* and *.bumpPatch* to increment versions. Due to *pre-release* and *build*
+being `String` literals, bumping them is unsupported.
+They have a traditionnal setter instead. This could be revised in the future.
+
 ---
 The semver needs to support `<`, `>`, `<=`, `>=`, `==` operands.
 
@@ -26,8 +31,11 @@ The semver string is likely to be converted to variables using regexps.
 I don't know how we can implement comparison between words, for example to determine if
 `1.0.0-alpha` is more recent than `1.0.0-beta`.
 
+**Update :** current implementation supports comparisons. As mentionned, pre-release 
+comparisons is unsupported.
+
 ---
 How the semver string is stored inside a Quark remains open. It will likely
 be inspired by current semver implementation inside other projects.
 
-A `VersionConstraint`class might be needed to perform dependecies checks.
+A `VersionConstraint` class might be needed to perform dependecies checks.
