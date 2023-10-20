@@ -45,12 +45,16 @@ This project contains :
 
 	- Containing **HelpSource/Classes/Version.schelp**, the associated documentation.
 
+	- Containing **Classes/VersionConstraint.sc** which defines the `VersionConstraint` class.
+
+	- Containing **HelpSource/Classes/VersionConstraint.schelp**, the associated documentation.
+
 ## TODO
 - write the user API if needed, although the class usage seems self-explanatory.
 - write code examples inside the schelp file, although the class usage seems self-explanatory.
 - collectively decide how to deal with pre-release string comparisons.
 - implement an automatic testing procedure if needed. Methods have been tested manually so far.
-- a native english speaker should correct the documentation file.
+- a native english speaker should correct the documentation files.
 
 ## Licence
 
