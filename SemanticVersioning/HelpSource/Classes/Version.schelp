@@ -1,6 +1,7 @@
 TITLE:: Version
 summary:: Implementation of the Semantic Versioning standard
 categories:: Development
+related:: Classes/VersionConstraint
 
 DESCRIPTION::
 Version is a tool designed to ease dependency management when developping SuperCollider projects. You will need it if you intend to develop a Quark, or if you'd like to implement semantic versioning inside your own project.
